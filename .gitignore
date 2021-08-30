@@ -2,6 +2,3 @@ node_modules
 build
 .idea
 .vscode
-package-lock.json
-webpack.config.js
-src
