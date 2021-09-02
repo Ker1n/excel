@@ -8,13 +8,15 @@
     "rules": {
         "arrow-parens": "off",
         "quotes": "off",
-        "object-curly-spacing":"warn",
+        "object-curly-spacing":"off",
         "comma-dangle": "off",
         "linebreak-style": ["error", "windows"],
         "require-jsdoc":"off",
         "indent": ["off", "tab"],
         "eol-last":"off",
-        "semi": "off"
+        "semi": "off",
+        "operator-linebreak": "off"
+        
     },
     "extends": ["eslint:recommended", "google"]
 }
