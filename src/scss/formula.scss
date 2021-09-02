@@ -1,7 +1,7 @@
 @import "variables";
 @import "mixins";
 
-.formula {
+.excel__formula { 
   position: absolute;
   left: 0;
   right: 0;
@@ -12,6 +12,10 @@
   align-items: center;
   justify-content: flex-start;
   border-bottom: 1px solid $border-color;
+}
+
+.formula {
+ 
   &__info {
     font-size: 18px;
     font-style: italic;

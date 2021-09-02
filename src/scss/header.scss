@@ -2,8 +2,7 @@
 @import "mixins";
 
 
-
-.header {
+.excel__header{ 
     display: flex;
     justify-content: flex-start;
     align-items: center;
@@ -13,6 +12,9 @@
     width: 100%;
     height: $header-height;
     padding: 4px 20px;
+}
+.header {
+
 
     //temp
     // background-color: bisque;

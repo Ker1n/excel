@@ -1,7 +1,7 @@
 @import "variables";
 @import "mixins";
 
-.toolbar {
+.excel__toolbar{
   position: absolute;
   left: 0;
   top: $header-height;
@@ -13,6 +13,10 @@
   align-items: center;
   padding: 4px 20px;
   width: 100%;
+
+}
+
+.toolbar {
 
   &__btn { 
       @include button(green)
