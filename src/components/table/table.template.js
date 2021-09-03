@@ -43,3 +43,11 @@ export function createTable(rowsCount = 20) {
 console.log(rows)
   return rows.join('');
 }
+
+
+
+
+
+
+
+
