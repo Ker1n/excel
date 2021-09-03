@@ -1,14 +1,13 @@
 const path = require("path");
-const {CleanWebpackPlugin} = require("clean-webpack-plugin");
+const { CleanWebpackPlugin } = require("clean-webpack-plugin");
 const HTMLWebpackPlugin = require("html-webpack-plugin");
 const CopyPlugin = require("copy-webpack-plugin");
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 
-
 const isProd = process.env.NODE_ENV === "production";
 const isDev = !isProd;
 
-const fileName = (ext) => (isDev ? `bundle.${ext}` : `bundle.[hash].${ext}`);
+const filename = (ext) => (isDev ? `bundle.${ext}` : `bundle.[hash].${ext}`);
 
 const jsLoaders = () => {
   const loaders = [
@@ -32,7 +31,7 @@ module.exports = {
   mode: "development",
   entry: ["@babel/polyfill", "./index.js"],
   output: {
-    filename: fileName("js"),
+    filename: filename("js"),
     path: path.resolve(__dirname, "build"),
   },
   resolve: {
@@ -65,7 +64,7 @@ module.exports = {
       ],
     }),
     new MiniCssExtractPlugin({
-      filename: fileName("css"),
+      filename: filename("css"),
     }),
   ],
   module: {
@@ -74,14 +73,14 @@ module.exports = {
         test: /\.scss$/i,
         use: [
           {
-            loader: MiniCssExtractPlugin.loader
+            loader: MiniCssExtractPlugin.loader,
           },
           "css-loader",
           "sass-loader",
         ],
       },
       {
-        test: /\.m?js$/,
+        test: /\.js$/,
         exclude: /(node_modules | bower_components)/,
         use: jsLoaders(),
       },
