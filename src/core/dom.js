@@ -53,6 +53,16 @@ class Dom {
     return this.$el.getBoundingClientRect();
   }
 
+
+  css(styles = {}) {
+    for (const key in styles) {
+      if (styles.hasOwnProperty.call(styles, key)) {
+       this.$el.style[key] = styles[key];
+      }
+    }
+    this.$el
+  }
+
   get data() { 
     return this.$el.dataset
   }

@@ -24,7 +24,7 @@ function createRow(index, content) {
     ? '<div class="row-resize" data-resize="row"></div>'
     : "";
   return `
-    <div class="table__row">
+    <div class="table__row" data-type="resizable" >
         <div class="table__row-info">
         ${index ? index : ""}
         ${resize}
@@ -45,7 +45,6 @@ export function createTable(rowsCount = 20) {
     .join("");
 
   rows.push(createRow(null, cols));
-
   for (let i = 0; i < rowsCount; i++) {
     const cells = new Array(columnsCount)
       .fill("")
