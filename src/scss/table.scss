@@ -47,6 +47,7 @@
     height: 100%;
     border-left: 0;
     border-top: 0;
+    user-select: none; 
   }
 
   &__cell {
@@ -58,7 +59,6 @@
     border-top: 0;
     border-left: 0;
     white-space: nowrap;
-    user-select: none; 
   }
 }
 .selected {
