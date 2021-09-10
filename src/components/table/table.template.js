@@ -3,11 +3,18 @@ const CHAR_CODES = {
   Z: 90,
 };
 
-function createCell(_, column) {
-  return `<div class="table__cell" 
-          contenteditable="true" 
-          data-col="${column}"
-          ></div>`;
+function createCell(row) {
+  return function(_, column) {
+    return `
+        <div 
+        class="table__cell" 
+        contenteditable 
+        data-col="${column}"
+        data-type="cell"
+        data-id="${row}:${column}"
+      ></div>
+  `;
+  };
 }
 
 function createColumn(column, index) {
@@ -45,12 +52,12 @@ export function createTable(rowsCount = 20) {
     .join("");
 
   rows.push(createRow(null, cols));
-  for (let i = 0; i < rowsCount; i++) {
+  for (let row = 0; row < rowsCount; row++) {
     const cells = new Array(columnsCount)
       .fill("")
-      .map((el, index) => createCell(el, index))
+      .map(createCell(row))
       .join("");
-    rows.push(createRow(i + 1, cells));
+    rows.push(createRow(row + 1, cells));
   }
 
   return rows.join("");

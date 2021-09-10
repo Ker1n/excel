@@ -16,6 +16,7 @@
     flex-direction: row;
     min-height: 20px;
     height: $row-height;
+ 
   }
 
   &__row-info {
@@ -24,7 +25,7 @@
     justify-content: center;
     align-items: center;
     min-width: $min-cell-width;
-    height: 100%;
+   
     border: 1px solid $border-color;
     background: #f8f9fa;
     border-top: none;
@@ -47,6 +48,8 @@
     height: 100%;
     border-left: 0;
     border-top: 0;
+    user-select: none; 
+    transition: width .5s ease;
   }
 
   &__cell {
@@ -58,7 +61,7 @@
     border-top: 0;
     border-left: 0;
     white-space: nowrap;
-    user-select: none; 
+    transition: width .5s ease;
   }
 }
 .selected {
