@@ -1,4 +1,9 @@
 node_modules
-build
+src
 .idea
 .vscode
+.eslintignore
+.eslintrc
+package.json
+package-lock.json
+webpack.config.js
