@@ -16,7 +16,8 @@
     flex-direction: row;
     min-height: 20px;
     height: $row-height;
- 
+    height: 100%;
+    transition: height 0.5s ease;
   }
 
   &__row-info {
@@ -30,6 +31,8 @@
     background: #f8f9fa;
     border-top: none;
     user-select: none; 
+  
+
   }
 
   &__row-data {
@@ -62,6 +65,7 @@
     border-left: 0;
     white-space: nowrap;
     transition: width .5s ease;
+    color: black;
   }
 }
 .selected {
