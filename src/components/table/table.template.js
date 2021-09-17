@@ -1,4 +1,6 @@
 import { toInlineStyles } from "../../core/utils";
+import { defaultStyles } from '../../constants';
+import { parse } from "../../core/parse";
 
 const CHAR_CODES = {
   A: 65,
@@ -12,17 +14,21 @@ function createCell(state, row) {
     const id = `${row}:${column}` 
     const width = getWidth(state.colState, column);
     const data = state.dataState[id] || "";
-    const styles = toInlineStyles(state.stylesState[id]) 
+    const styles = toInlineStyles({
+      ...defaultStyles,
+      ...state.stylesState[id]
+    }) 
     return `
         <div 
         class="table__cell" 
         contenteditable 
         data-col="${column}"
         data-type="cell"
+        data-value="${data || ''}"
         data-id='${id}'
        style='${styles}; width: ${width}'
       >
-      ${data}
+      ${parse(data)}
       </div>
   `;
   };

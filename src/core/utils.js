@@ -32,7 +32,20 @@ export function camelToDashCase(str) {
 
 export function toInlineStyles(styles = {}) {
   const result = Object.keys(styles)
-  .map(key => `${camelToDashCase(key)}: ${styles[key]}`)
-  .join(';')
-  return result
+    .map((key) => `${camelToDashCase(key)}: ${styles[key]}`)
+    .join(";");
+  return result;
+}
+
+export function debounce(fn, wait) {
+  let timeout;
+  return function(...args) {
+    const later = () => {
+      clearTimeout(timeout);
+      // eslint-disable-next-line
+      fn.apply(this, args)
+    };
+    clearTimeout(timeout);
+    timeout = setTimeout(later, wait);
+  };
 }

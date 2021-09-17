@@ -7,6 +7,7 @@ import { isCell, matrix, nextSelector } from "./table.functions";
 import { $ } from "../../core/dom";
 import * as actions from "@core/store/actions";
 import { defaultStyles } from "../../constants";
+import { parse } from "../../core/parse";
 
 export class Table extends ExcelComponent {
   static className = "excel__table";
@@ -33,13 +34,13 @@ export class Table extends ExcelComponent {
     const $cell = this.$root.find('[data-id="0:0"]');
     this.selectCell($cell);
 
-    this.$on("formula:input", (text) => {
-      this.selection.current.text(text);
+    this.$on("formula:input", (value) => {
+      this.selection.current.attr("data-value", value).text(parse(value));
+      this.selection.current.text(value);
     });
 
     this.$on("formula:done", (text) => {
       this.selection.current.focus();
-      this.updateTextInStore(text);
     });
 
     this.$on("toolbar:applyStyle", (style) => {
@@ -47,7 +48,7 @@ export class Table extends ExcelComponent {
       this.dispatch(
         actions.applyStyle({
           value: style,
-          ids: this.selection.selectedIds
+          ids: this.selection.selectedIds,
         })
       );
     });
